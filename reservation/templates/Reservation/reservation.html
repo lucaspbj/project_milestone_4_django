@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
+  {% load bootstrap4 %}
+
   <div class="main-wrap">
     <div class="cover_1 cover_sm">
       <div class="img_bg" style="background-image: url({% static 'site_static\img\shutterstock_1119580967.jpg' %})" data-stellar-background-ratio="0.5">
@@ -26,15 +28,15 @@
           <div class="col-md-10 p-5 form-wrap">
             <form action="" method="POST">
               {% csrf_token %}
-              {{ form }}
-
-              <button type="submit" class="btn btn-primary">Submit</button>
+              {% csrf_token %}
+              {% bootstrap_form form %}
+              {% buttons %}
+              <button type="submit" class="btn btn-primary">Reserve a Table</button>
+              {% endbuttons %}
             </form>
           </div>
         </div>
       </div>
     </div>
-
-  
   </div>
 {% endblock %}
